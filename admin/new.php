@@ -27,15 +27,36 @@
        $(".fadeaway").fadeOut('slow');
       }
     </script>
-
+    <style media="screen">
+			body { padding-top: 80px; }
+		</style>
   </head>
   <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand">Menuboard System</span>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/admin/">Menu Administration</a></li>
+            <li class="active"><a href="/admin/new.php">Add New Item</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <h1><a href="/admin">Menuboard System</a></h1>
-
            <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">Add a New Item!</h3>
@@ -73,8 +94,6 @@
                       </div>
                     </div>
                   </div>
-
-
 
 
                   <div class="form-group">
