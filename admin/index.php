@@ -10,7 +10,7 @@
     <meta name="description" content="Nature's Table Menuboard App">
     <meta name="author" content="Robert Johnson">
 
-    <title>Nature's Table Menuboard</title>
+    <title>Menuboard System</title>
 
     <!-- Need to download these files to the local server -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -42,6 +42,7 @@
               </div>
               <div class="panel-body">
                 <p>
+                  <div class="table-responsive">
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -69,6 +70,7 @@
                       }
                     ?>
                   </table>
+                </div>
                 </p>
               </div>
             </div>
@@ -85,6 +87,7 @@
               </div>
               <div class="panel-body">
                 <p>
+                  <div class="table-responsive">
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -92,7 +95,7 @@
                         <th>Description (Ingredients)</th>
                         <th>Price (Reg/Lrg)</th>
                         <th>Price (Small)</th>
-                        <th>Enabled</th>
+                        <th>Enabled&#8199;&#8199;&#8199;</th>
                       </tr>
                     </thead>
                     <?php
@@ -112,6 +115,7 @@
                       }
                     ?>
                   </table>
+                </div>
                 </p>
               </div>
             </div>
@@ -127,6 +131,7 @@
               </div>
               <div class="panel-body">
                 <p>
+                  <div class="table-responsive">
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -134,7 +139,7 @@
                         <th>Description (Ingredients)</th>
                         <th>Price (Reg/Lrg)</th>
                         <th>Price (Small)</th>
-                        <th>Enabled</th>
+                        <th>Enabled&#8199;&#8199;&#8199;</th>
                       </tr>
                     </thead>
                     <?php
@@ -154,6 +159,7 @@
                       }
                     ?>
                   </table>
+                </div>
                 </p>
               </div>
             </div>
@@ -168,6 +174,7 @@
               </div>
               <div class="panel-body">
                 <p>
+                  <div class="table-responsive">
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -175,7 +182,7 @@
                         <th>Description (Ingredients)</th>
                         <th>Price (Reg/Lrg)</th>
                         <th>Price (Small)</th>
-                        <th>Enabled</th>
+                        <th>Enabled&#8199;&#8199;&#8199;</th>
                       </tr>
                     </thead>
                     <?php
@@ -195,6 +202,7 @@
                       }
                     ?>
                   </table>
+                </div>
                 </p>
               </div>
             </div>
@@ -203,11 +211,10 @@
     </div>
     <script charset="utf-8">
       $('.btn-toggle').click(function() {
-
         $(this).find('.btn').toggleClass('active');
 
         if ($(this).find('.btn-primary').size()>0) {
-            $(this).find('.btn').toggleClass('btn-primary');
+           $(this).find('.btn').toggleClass('btn-primary');
         }
         if ($(this).find('.btn-danger').size()>0) {
           $(this).find('.btn').toggleClass('btn-danger');

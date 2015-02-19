@@ -10,7 +10,7 @@
     <meta name="description" content="Nature's Table Menuboard App">
     <meta name="author" content="Robert Johnson">
 
-    <title>Add New Item — Nature's Table Menuboard</title>
+    <title>Add New Item — Menuboard System</title>
 
     <!-- Need to download these files to the local server -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

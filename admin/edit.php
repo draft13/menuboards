@@ -9,10 +9,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Nature's Table Menuboard App">
+    <meta name="description" content="Menuboard App">
     <meta name="author" content="Robert Johnson">
 
-    <title>Nature's Table Menuboard</title>
+    <title>Menuboard System</title>
 
     <!-- Need to download these files to the local server -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
