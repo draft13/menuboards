@@ -1,4 +1,7 @@
-<?php require 'db-config.php';
+<?php
+	require_once 'db-config.php';
+	require_once 'libs/vars.php';
+
 	$displaymode = DB::Query("select settingvalue from options where settingname = 'displaymode'");
 	$displaymodevalue = $displaymode['0']['settingvalue'];
 
@@ -51,7 +54,7 @@
 
 		<!-- Need to download these files to the local server -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
+		<link rel="stylesheet" href="<?php echo $boottheme ?>">
 		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		<script charset="utf-8">
@@ -70,7 +73,7 @@
 		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-inverse navbar-fixed-top">
+		<nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -79,11 +82,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <span class="navbar-brand">Menuboard System</span>
+					<span class="navbar-brand"><a href="/"><img alt="Brand" src="../menu.png" height="20" width="20"></a></span>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
             <li><a href="/admin/">Menu Administration</a></li>
             <li><a href="/admin/new.php">Add New Item</a></li>
           </ul>

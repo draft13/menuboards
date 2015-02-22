@@ -1,5 +1,6 @@
 <?php
   require_once '../db-config.php';
+  require_once '../libs/vars.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
 
     <!-- Need to download these files to the local server -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $boottheme ?>">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
