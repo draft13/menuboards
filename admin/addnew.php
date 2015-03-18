@@ -11,5 +11,3 @@
     VALUES(%s0, %s1, %d2, %d3, %i4, %i5, %i6, %i7, %i8);", $_POST['shortDesc'], $_POST['longDesc'], $_POST['price'], $_POST['pricesml'], $special, $breakfast, $soup, $salad, $enabled);
 
   header("Location: new.php?success=true");
-
-?>

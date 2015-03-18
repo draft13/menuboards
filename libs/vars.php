@@ -1,2 +1,2 @@
 <?php
-$boottheme = 'http://bootswatch.com/paper/bootstrap.min.css';
+$boottheme = 'https://bootswatch.com/paper/bootstrap.min.css';

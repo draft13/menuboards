@@ -59,6 +59,7 @@
             ///////    Soup Items.
             $soups = DB::query("SELECT * FROM menuitems where issoup = 1;");
           ?>
+
            <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">Soups</h3>
@@ -73,21 +74,17 @@
                         <th>Description (Ingredients)</th>
                         <th>Price (Reg/Lrg)</th>
                         <th>Price (Small)</th>
-                        <th>Enabled&#8199;&#8199;&#8199;</th>
+                        <th>Enabled</th>
                       </tr>
                     </thead>
                     <?php
                       foreach ($soups as $item) {
                         $smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
                         echo '<tr><td>' . $item['shortdesc'] . '</td><td>' . $item['longdesc'] . '</td><td>' . '$'. $item['price'] . '</td><td>' .  $smallprice  . '</td><td>';
-                        echo '<div class="btn-group btn-toggle">';
-                        if ($item['enabled'] == '1') {
-                          echo '<button class="btn btn-xs btn-success">YES</button>';
-                          echo '<button class="btn btn-xs btn-default">NO</button>';
-                        } else {
-                          echo '<button class="btn btn-xs btn-default">YES</button>';
-                          echo '<button class="btn btn-xs btn-success">NO</button>';
-                        }
+                        echo '<div class="checkbox" style="margin:0px;">';
+                        echo '<label>';
+                        echo '<input type="checkbox"' . ($item['enabled'] ? "checked" : "") . '>';
+                        echo '</label>';
                         echo '</div>';
                         echo '</td></tr>';
                       }
@@ -118,21 +115,17 @@
                         <th>Description (Ingredients)</th>
                         <th>Price (Reg/Lrg)</th>
                         <th>Price (Small)</th>
-                        <th>Enabled&#8199;&#8199;&#8199;</th>
+                        <th>Enabled</th>
                       </tr>
                     </thead>
                     <?php
                       foreach ($salads as $item) {
                         $smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
                         echo '<tr><td>' . $item['shortdesc'] . '</td><td>' . $item['longdesc'] . '</td><td>' . '$'. $item['price'] . '</td><td>' .  $smallprice  . '</td><td>';
-                        echo '<div class="btn-group btn-toggle">';
-                        if ($item['enabled'] == '1') {
-                          echo '<button class="btn btn-xs btn-success">YES</button>';
-                          echo '<button class="btn btn-xs btn-default">NO</button>';
-                        } else {
-                          echo '<button class="btn btn-xs btn-default">YES</button>';
-                          echo '<button class="btn btn-xs btn-success">NO</button>';
-                        }
+                        echo '<div class="checkbox" style="margin:0px;">';
+                        echo "<label>";
+                        echo '<input type="checkbox"' . ($item['enabled'] ? "checked" : "") . '>';
+                        echo "</label>";
                         echo '</div>';
                         echo '</td></tr>';
                       }
@@ -162,21 +155,17 @@
                         <th>Description (Ingredients)</th>
                         <th>Price (Reg/Lrg)</th>
                         <th>Price (Small)</th>
-                        <th>Enabled&#8199;&#8199;&#8199;</th>
+                        <th>Enabled</th>
                       </tr>
                     </thead>
                     <?php
                       foreach ($specials as $item) {
                         $smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
                         echo '<tr><td>' . $item['shortdesc'] . '</td><td>' . $item['longdesc'] . '</td><td>' . '$'. $item['price'] . '</td><td>' .  $smallprice  . '</td><td>';
-                        echo '<div class="btn-group btn-toggle">';
-                        if ($item['enabled'] == '1') {
-                          echo '<button class="btn btn-xs btn-success">YES</button>';
-                          echo '<button class="btn btn-xs btn-default">NO</button>';
-                        } else {
-                          echo '<button class="btn btn-xs btn-default">YES</button>';
-                          echo '<button class="btn btn-xs btn-success">NO</button>';
-                        }
+                        echo '<div class="checkbox" style="margin:0px;">';
+                        echo "<label>";
+                        echo '<input type="checkbox"' . ($item['enabled'] ? "checked" : "") . '>';
+                        echo "</label>";
                         echo '</div>';
                         echo '</td></tr>';
                       }
@@ -205,21 +194,17 @@
                         <th>Description (Ingredients)</th>
                         <th>Price (Reg/Lrg)</th>
                         <th>Price (Small)</th>
-                        <th>Enabled&#8199;&#8199;&#8199;</th>
+                        <th>Enabled</th>
                       </tr>
                     </thead>
                     <?php
                       foreach ($breakfastitems as $item) {
                         $smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
                         echo '<tr><td>' . $item['shortdesc'] . '</td><td>' . $item['longdesc'] . '</td><td>' . '$'. $item['price'] . '</td><td>' .  $smallprice  . '</td><td>';
-                        echo '<div class="btn-group btn-toggle">';
-                        if ($item['enabled'] == '1') {
-                          echo '<button class="btn btn-xs btn-success">YES</button>';
-                          echo '<button class="btn btn-xs btn-default">NO</button>';
-                        } else {
-                          echo '<button class="btn btn-xs btn-default">YES</button>';
-                          echo '<button class="btn btn-xs btn-success">NO</button>';
-                        }
+                        echo '<div class="checkbox" style="margin:0px;">';
+                        echo "<label>";
+                        echo '<input type="checkbox"' . ($item['enabled'] ? "checked" : "") . '>';
+                        echo "</label>";
                         echo '</div>';
                         echo '</td></tr>';
                       }
@@ -231,24 +216,9 @@
             </div>
           </div>
       </div>
-    </div>
+    </div> <!-- Main Row Div -->
     <script charset="utf-8">
-      $('.btn-toggle').click(function() {
-        $(this).find('.btn').toggleClass('active');
-
-        if ($(this).find('.btn-primary').size()>0) {
-           $(this).find('.btn').toggleClass('btn-primary');
-        }
-        if ($(this).find('.btn-danger').size()>0) {
-          $(this).find('.btn').toggleClass('btn-danger');
-        }
-        if ($(this).find('.btn-success').size()>0) {
-          $(this).find('.btn').toggleClass('btn-success');
-        }
-        if ($(this).find('.btn-info').size()>0) {
-          $(this).find('.btn').toggleClass('btn-info');
-        }
-        $(this).find('.btn').toggleClass('btn-default');
+      $('.checkbox').click(function() {
 
         $('#savep').css('display','block');
         $('#savebtn').css('display','inline');
