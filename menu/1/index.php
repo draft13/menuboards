@@ -9,6 +9,6 @@
     </style>
   </head>
   <body>
-    <img src='menu1.jpg' />
+    <img src='menu1.jpg' id='menuboard' />
   </body>
 </html>
