@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting(E_ALL ^ E_NOTICE);
   require_once '../db-config.php';
 
   $special    = (isset($_POST['special'])) ? 1 : 0;

@@ -4,7 +4,7 @@ error_reporting(E_ALL ^ E_NOTICE);
   $mode = DB::Query("select settingvalue from menuboards.options where settingname = 'displaymode';");
 
   if ($mode[0][settingvalue] == 'Special Event') {
-    echo 'td3.png';
+    echo 'menu1.jpg';
   } else {
     echo 'menu4.jpg';
   }
