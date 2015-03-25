@@ -11,28 +11,28 @@
 			case 'Breakfast Menu':
 				echo "<button type=\"button\" class=\"btn btn-default active\">Break</button>" . PHP_EOL;
 				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Daily Special');location.reload();\">Daily</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
+				// echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
 				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Special Event');location.reload();\">Event</button>" . PHP_EOL;
 				break;
 
 			case 'Daily Special':
 				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Breakfast Menu');location.reload();\">Break</button>" . PHP_EOL;
 				echo "<button type=\"button\" class=\"btn btn-default active\">Daily</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
+				// echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
 				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Special Event');location.reload();\">Event</button>" . PHP_EOL;
 				break;
 
-			case 'No Special':
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Breakfast Menu');location.reload();\">Break</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Daily Special');location.reload();\">Daily</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default active\">None</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Special Event');location.reload();\">Event</button>" . PHP_EOL;
-				break;
+			// case 'No Special':
+			// 	echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Breakfast Menu');location.reload();\">Break</button>" . PHP_EOL;
+			// 	echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Daily Special');location.reload();\">Daily</button>" . PHP_EOL;
+			// 	echo "<button type=\"button\" class=\"btn btn-default active\">None</button>" . PHP_EOL;
+			// 	echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Special Event');location.reload();\">Event</button>" . PHP_EOL;
+			// 	break;
 
 			default:
 				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Breakfast Menu');location.reload();\">Break</button>" . PHP_EOL;
 				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Daily Special');location.reload();\">Daily</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
+				// echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
 				echo "<button type=\"button\" class=\"btn btn-default active\">Event</button>" . PHP_EOL;
 				break;
 		}
