@@ -74,14 +74,14 @@
                         <th>Description (Ingredients)</th>
                         <th>Price (Reg/Lrg)</th>
                         <th>Price (Small)</th>
-                        <th>Enabled</th>
+                        <th>Show on Menu</th>
                       </tr>
                     </thead>
                     <?php
                       foreach ($soups as $item) {
                         $smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
                         echo '<tr><td>' . $item['shortdesc'] . '</td><td>' . $item['longdesc'] . '</td><td>' . '$'. $item['price'] . '</td><td>' .  $smallprice  . '</td><td>';
-                        echo '<div class="checkbox" style="margin:0px;">';
+                        echo '<div id="' . $item['id'] . '" class="checkbox" style="margin:0px;">';
                         echo '<label>';
                         echo '<input type="checkbox"' . ($item['enabled'] ? "checked" : "") . '>';
                         echo '</label>';
@@ -115,14 +115,14 @@
                         <th>Description (Ingredients)</th>
                         <th>Price (Reg/Lrg)</th>
                         <th>Price (Small)</th>
-                        <th>Enabled</th>
+                        <th>Show on Menu</th>
                       </tr>
                     </thead>
                     <?php
                       foreach ($salads as $item) {
                         $smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
                         echo '<tr><td>' . $item['shortdesc'] . '</td><td>' . $item['longdesc'] . '</td><td>' . '$'. $item['price'] . '</td><td>' .  $smallprice  . '</td><td>';
-                        echo '<div class="checkbox" style="margin:0px;">';
+                        echo '<div id="' . $item['id'] . '" class="checkbox" style="margin:0px;">';
                         echo "<label>";
                         echo '<input type="checkbox"' . ($item['enabled'] ? "checked" : "") . '>';
                         echo "</label>";
@@ -155,14 +155,14 @@
                         <th>Description (Ingredients)</th>
                         <th>Price (Reg/Lrg)</th>
                         <th>Price (Small)</th>
-                        <th>Enabled</th>
+                        <th>Show on Menu</th>
                       </tr>
                     </thead>
                     <?php
                       foreach ($specials as $item) {
                         $smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
                         echo '<tr><td>' . $item['shortdesc'] . '</td><td>' . $item['longdesc'] . '</td><td>' . '$'. $item['price'] . '</td><td>' .  $smallprice  . '</td><td>';
-                        echo '<div class="checkbox" style="margin:0px;">';
+                        echo '<div id="' . $item['id'] . '" class="checkbox" style="margin:0px;">';
                         echo "<label>";
                         echo '<input type="checkbox"' . ($item['enabled'] ? "checked" : "") . '>';
                         echo "</label>";
@@ -194,14 +194,14 @@
                         <th>Description (Ingredients)</th>
                         <th>Price (Reg/Lrg)</th>
                         <th>Price (Small)</th>
-                        <th>Enabled</th>
+                        <th>Show on Menu</th>
                       </tr>
                     </thead>
                     <?php
                       foreach ($breakfastitems as $item) {
                         $smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
                         echo '<tr><td>' . $item['shortdesc'] . '</td><td>' . $item['longdesc'] . '</td><td>' . '$'. $item['price'] . '</td><td>' .  $smallprice  . '</td><td>';
-                        echo '<div class="checkbox" style="margin:0px;">';
+                        echo '<div id="' . $item['id'] . '" class="checkbox" style="margin:0px;">';
                         echo "<label>";
                         echo '<input type="checkbox"' . ($item['enabled'] ? "checked" : "") . '>';
                         echo "</label>";
@@ -220,8 +220,20 @@
     <script charset="utf-8">
       $('.checkbox').click(function() {
 
-        $('#savep').css('display','block');
-        $('#savebtn').css('display','inline');
+        // get id
+        var foodid = $(this).attr('id');
+
+        function httpGet(theUrl)
+  			{
+  					var xmlHttp = null;
+
+  					xmlHttp = new XMLHttpRequest();
+  					xmlHttp.open( "GET", theUrl, false );
+  					xmlHttp.send( null );
+  					// return xmlHttp.responseText;
+  			}
+
+        httpGet('savechanges.php?id=' + foodid);
 
       });
     </script>

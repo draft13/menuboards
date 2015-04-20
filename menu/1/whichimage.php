@@ -5,7 +5,7 @@
   if ($mode[0][settingvalue] == 'Special Event') {
     echo 'td3.png';
   } else {
-    echo 'menu1.jpg';
+    echo 'breakfast.png';
   }
 
 ?>
