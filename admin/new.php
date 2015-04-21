@@ -76,22 +76,22 @@
                       <span id="helpBlock" class="help-block">Check the following if they are true for this item. </span>
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" name="breakfast"> Breakfast?
+                          <input type="checkbox" name="breakfast"> Breakfast Item?
                         </label>
                       </div>
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" name="salad"> Salad?
+                          <input type="checkbox" name="salad"> Featured Salad?
                         </label>
                       </div>
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" name="soup"> Soup?
+                          <input type="checkbox" name="soup"> Featured Soup?
                         </label>
                       </div>
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" name="special"> On Special?
+                          <input type="checkbox" name="special"> For Daily Special?
                         </label>
                       </div>
                     </div>

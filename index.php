@@ -5,39 +5,6 @@
 	$displaymode = DB::Query("select settingvalue from options where settingname = 'displaymode'");
 	$displaymodevalue = $displaymode['0']['settingvalue'];
 
-	function	returnButtons($menutype) {
-
-		switch ($menutype) {
-			case 'Breakfast Menu':
-				echo "<button type=\"button\" class=\"btn btn-default active\">Break</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Daily Special');location.reload();\">Daily</button>" . PHP_EOL;
-				// echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Special Event');location.reload();\">Event</button>" . PHP_EOL;
-				break;
-
-			case 'Daily Special':
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Breakfast Menu');location.reload();\">Break</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default active\">Daily</button>" . PHP_EOL;
-				// echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Special Event');location.reload();\">Event</button>" . PHP_EOL;
-				break;
-
-			// case 'No Special':
-			// 	echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Breakfast Menu');location.reload();\">Break</button>" . PHP_EOL;
-			// 	echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Daily Special');location.reload();\">Daily</button>" . PHP_EOL;
-			// 	echo "<button type=\"button\" class=\"btn btn-default active\">None</button>" . PHP_EOL;
-			// 	echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Special Event');location.reload();\">Event</button>" . PHP_EOL;
-			// 	break;
-
-			default:
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Breakfast Menu');location.reload();\">Break</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=Daily Special');location.reload();\">Daily</button>" . PHP_EOL;
-				// echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
-				echo "<button type=\"button\" class=\"btn btn-default active\">Event</button>" . PHP_EOL;
-				break;
-		}
-	}
-
  ?>
 
 <!DOCTYPE html>
@@ -57,17 +24,6 @@
 		<link rel="stylesheet" href="<?php echo $boottheme ?>">
 		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-		<script charset="utf-8">
-			function httpGet(theUrl)
-			{
-					var xmlHttp = null;
-
-					xmlHttp = new XMLHttpRequest();
-					xmlHttp.open( "GET", theUrl, false );
-					xmlHttp.send( null );
-					// return xmlHttp.responseText;
-			}
-		</script>
 		<style media="screen">
 			body { padding-top: 80px; }
 		</style>
@@ -98,30 +54,128 @@
 				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">Menu Display Mode</h3>
+								<h3 class="panel-title">Menuboard Status</h3>
 							</div>
 							<div class="panel-body">
 								<p class="alert alert-success" role="alert">
-									Current display mode is: <br><strong><?php echo $displaymodevalue ?></strong>.
+									The current menuboard mode:<br><span style="font-size:24px;font-weight:bold;"><?php echo $displaymodevalue ?></span>
 								</p>
-								<div class="btn-group" role="group" aria-label="...">
-									<?php returnButtons($displaymodevalue); ?>
+
+
+								<?php
+									///////    Specials.
+									$specials = DB::query("SELECT * FROM menuitems where onspecial = 1 and enabled = 1;");
+								?>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h3 class="panel-title">Today's Special</h3>
+									</div>
+									<div class="panel-body">
+											<div class="table-responsive">
+											<table class="table table-striped">
+												<?php
+													foreach ($specials as $item) {
+														$smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
+														echo '<tr><td>' . $item['shortdesc'] . '</td></tr>';
+													}
+												?>
+											</table>
+										</div>
+
+									</div>
 								</div>
+
+								<?php
+									///////    Breakfast Items.
+									$breakfastitems = DB::query("SELECT * FROM menuitems where isbreakfast = 1 and enabled = 1;");
+								?>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h3 class="panel-title">Breakfast</h3>
+									</div>
+									<div class="panel-body">
+											<div class="table-responsive">
+											<table class="table table-striped">
+												<?php
+													foreach ($breakfastitems as $item) {
+														$smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
+														echo '<tr><td>' . $item['shortdesc'] . '</td></tr>';
+													}
+												?>
+											</table>
+										</div>
+									</div>
+								</div>
+
+
+
+								<?php
+			            ///////    Soup Items.
+			            $soups = DB::query("SELECT * FROM menuitems where issoup = 1 and enabled = 1;");
+			          ?>
+
+			           <div class="panel panel-default">
+			              <div class="panel-heading">
+			                <h3 class="panel-title">Soups</h3>
+			              </div>
+			              <div class="panel-body">
+			                  <div class="table-responsive">
+			                  <table class="table table-striped">
+			                    <?php
+			                      foreach ($soups as $item) {
+			                        $smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
+			                        echo '<tr><td>' . $item['shortdesc'] . '</td></tr>';
+			                      }
+			                    ?>
+			                  </table>
+			                </div>
+			              </div>
+			            </div>
+
+
+
+			            <?php
+			              ///////    Salad Items.
+			              $salads = DB::query("SELECT * FROM menuitems where issalad = 1 and enabled = 1;");
+			            ?>
+			            <div class="panel panel-default">
+			              <div class="panel-heading">
+			                <h3 class="panel-title">Salads</h3>
+			              </div>
+			              <div class="panel-body">
+			                  <div class="table-responsive">
+			                  <table class="table table-striped">
+			                    <?php
+			                      foreach ($salads as $item) {
+			                        $smallprice = ($item['pricesml'] == 0.00) ? "—" : '$'.$item['pricesml'];
+			                        echo '<tr><td>' . $item['shortdesc'] . '</td></tr>';
+			                      }
+			                    ?>
+			                  </table>
+			                </div>
+			              </div>
+			            </div>
+
+
+
 							</div>
 						</div>
 					</div>
-					<!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h3 class="panel-title">Administration</h3>
 							</div>
 							<div class="panel-body">
 								<p>
-									<a href="admin" class="btn btn-default" role="button">Admin Interface</a>
+									<a href="admin" class="btn btn-default" role="button">Menu Administration</a>
+								</p>
+								<p>
+									<a href="admin/new.php" class="btn btn-default" role="button">Add a New Menu Item</a>
 								</p>
 								</div>
 							</div>
-  					</div> -->
+  					</div>
 				</div>
 			</div>
 		</div>

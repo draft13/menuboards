@@ -1,28 +1,30 @@
 <?php error_reporting(E_ALL ^ E_NOTICE);
   include('../../db-config.php');
-  $breakfastitems = DB::Query("SELECT * FROM menuboards.menuitems where isbreakfast = 1 and enabled = 1;");
+  $specialitems = DB::Query("SELECT * FROM menuboards.menuitems where onspecial = 1 and enabled = 1;");
   $saladitems = DB::Query("SELECT * FROM menuboards.menuitems where issalad = 1 and enabled = 1;");
   $soupitems = DB::Query("SELECT * FROM menuboards.menuitems where issoup = 1 and enabled = 1;");
 ?>
-
 <img src='bg.png' id='menuboard' />
 <img src='logo.png' id='logo' />
 <div id="title">
-  <span>BREAKFAST MENU</span>
+  <span>DAILY SPECIAL</span>
 </div>
 
-<div id="menuitems">
-  <?php
-    foreach ($breakfastitems as $item) {
-      echo '<div class="menuitem">' . PHP_EOL;
-      echo '<h2>' . $item['shortdesc'] . '</h2>' . PHP_EOL;
-      echo '<p class="ingredients">' . PHP_EOL;
-      echo $item['longdesc'] . '&#160;&#160;' . $item['price'] . PHP_EOL;
-      echo '</p>' . PHP_EOL;
-      echo '</div>' . PHP_EOL;
-    }
-  ?>
-</div>
+
+  <div id="special">
+    <?php
+      foreach ($specialitems as $item) {
+        echo '<h2>' . $item['shortdesc'] . '</h2>';
+        echo '<p class="ingredients">';
+        echo $item['longdesc'];
+        echo '</p>';
+        echo '<p class="price">';
+        echo $item['price'];
+        echo '</p>';
+      }
+    ?>
+
+  </div>
 
 <div id="sidemenu">
   <h2>TODAY'S SOUPS</h2>

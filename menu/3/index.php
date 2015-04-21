@@ -27,7 +27,7 @@
                       $loader.trigger('load');
                   }
               });
-          }, 5000);
+          }, 1000);
       });
 
     </script>

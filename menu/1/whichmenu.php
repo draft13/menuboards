@@ -4,16 +4,16 @@
 
   switch ($mode[0][settingvalue]) {
       case 'Special Event':
-          include 'test.php';
+          include 'event.php';
           break;
       case 'Breakfast Menu':
           include 'breakfast.php';
           break;
       case 'Daily Special':
-          include 'test.php';
+          include 'daily.php';
           break;
-      case 'None':
-          include 'test.php';
+      case 'No Special':
+          include 'none.php';
           break;
   }
 

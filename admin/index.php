@@ -1,6 +1,43 @@
 <?php error_reporting(E_ALL ^ E_NOTICE);
   require_once '../db-config.php';
   require_once '../libs/vars.php';
+
+  $displaymode = DB::Query("select settingvalue from options where settingname = 'displaymode'");
+	$displaymodevalue = $displaymode['0']['settingvalue'];
+
+  function	returnButtons($menutype) {
+
+		switch ($menutype) {
+			case 'Breakfast Menu':
+				echo "<button type=\"button\" class=\"btn btn-default active\">Breakfast Menu</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=Daily Special');location.reload();\">Daily Special</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=Special Event');location.reload();\">Special Event</button>" . PHP_EOL;
+				break;
+
+			case 'Daily Special':
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=Breakfast Menu');location.reload();\">Breakfast Menu</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default active\">Daily Special</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=Special Event');location.reload();\">Special Event</button>" . PHP_EOL;
+				break;
+
+			case 'No Special':
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=Breakfast Menu');location.reload();\">Breakfast Menu</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=Daily Special');location.reload();\">Daily Special</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default active\">None</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=Special Event');location.reload();\">Special Event</button>" . PHP_EOL;
+				break;
+
+			default:
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=Breakfast Menu');location.reload();\">Breakfast Menu</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=Daily Special');location.reload();\">Daily Special</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default\" onClick=\"httpGet('../libs/changemenu.php?settingvalue=No Special');location.reload();\">None</button>" . PHP_EOL;
+				echo "<button type=\"button\" class=\"btn btn-default active\">Special Event</button>" . PHP_EOL;
+				break;
+		}
+	}
+
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +60,17 @@
     <style media="screen">
 			body { padding-top: 80px; }
 		</style>
+    <script charset="utf-8">
+      function httpGet(theUrl)
+      {
+          var xmlHttp = null;
+
+          xmlHttp = new XMLHttpRequest();
+          xmlHttp.open( "GET", theUrl, false );
+          xmlHttp.send( null );
+          // return xmlHttp.responseText;
+      }
+    </script>
   </head>
   <body>
 
@@ -50,9 +98,19 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <p class="text-right" id="savep" style="display:none;">
-            <a href="savechanges.php" class="btn btn-danger" id="savebtn" style="display:none;">Save Changes</a>
-          </p>
+
+
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Menu Display Mode</h3>
+            </div>
+            <div class="panel-body">
+              <div class="btn-group" role="group" aria-label="...">
+                <?php returnButtons($displaymodevalue); ?>
+              </div>
+            </div>
+          </div>
 
 
           <?php

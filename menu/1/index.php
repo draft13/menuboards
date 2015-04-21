@@ -1,9 +1,5 @@
 <?php error_reporting(E_ALL ^ E_NOTICE);
   include('../../db-config.php');
-  $breakfastitems = DB::Query("SELECT * FROM menuboards.menuitems where isbreakfast = 1 and enabled = 1;");
-  $saladitems = DB::Query("SELECT * FROM menuboards.menuitems where issalad = 1 and enabled = 1;");
-  $soupitems = DB::Query("SELECT * FROM menuboards.menuitems where issoup = 1 and enabled = 1;");
-  $mode = DB::Query("SELECT settingvalue FROM menuboards.options where settingname = 'displaymode';");
 ?>
 <html>
   <head>
@@ -14,7 +10,7 @@
   <body>
 
     <div id="mainbody">
-      loading...
+      <h1 style="font-variant:small-caps;">loading...</h1>
     </div>
     <script charset="utf-8">
 
