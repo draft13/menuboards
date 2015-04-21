@@ -1,0 +1,100 @@
+body {
+  margin:0;
+  padding:0;
+}
+img#logo{
+  padding: 15px 0 0 420px;
+  margin: 0;
+}
+#menuboard {
+  position:absolute;
+  top:0px;
+  left:0px;
+  z-index: -1;
+}
+h2 {
+  font-family: 'Hess Gothic Round NF', sans-serif;
+  color: #aa1836;
+  font-size: 34px;
+  margin: 0px;
+  padding: 0px;
+  letter-spacing: .05em;
+  font-kerning: normal;
+}
+div#title {
+  font-family: 'Hess Gothic Round NF', sans-serif;
+  color: white;
+  font-size: 43px;
+  margin: 0;
+  letter-spacing: .05em;
+  font-kerning: normal;
+  font-weight: bold;
+  width: 1394px;
+  background-color: #488214;
+  position: absolute;
+  top:325px;
+  left:0px;
+}
+div#title span {
+  display:table;
+  margin:0 auto;
+  align: center;
+  padding: 3px 0 0 0;
+}
+div#menuitems {
+  position:absolute;
+  top: 421px;
+  left: 55px;
+  margin: 0px;
+  padding: 0px;
+  height: 600px;
+  width: 1270px;
+  /*border: solid 1px red;*/
+  column-width: 505px;
+  -webkit-column-width: 505px;
+}
+div.menuitem {
+  margin: 0px;
+  padding: 0px;
+  width: 600px;
+  /*border: solid 1px blue;*/
+}
+p.ingredients {
+  font-family: "Gill Sans MT", sans-serif;
+  font-size: 24px;
+  margin: 0px;
+  padding: 0 0 60px 0;
+}
+p small {
+  color: gray;
+}
+
+
+div#sidemenu {
+  position: absolute;
+  top: 0px;
+  left: 1394px;
+}
+div#sidemenu h2 {
+  margin: 23px 0 20px 0;
+  padding: 2px 0 0 35px;
+  background-color: #aa1836;
+  color: white;
+  font-size: 48px;
+  width: 491px;
+}
+div.sideitem {
+  font-family: "Hess Gothic Round NF", sans-serif;
+  color: #aa1836;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 0 0 25px 35px;
+}
+
+span.price {
+  font-family: "Gill Sans MT", sans-serif;
+  display:table;
+  margin:0 auto;
+  font-size: 24px;
+  align: center;
+}
