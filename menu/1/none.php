@@ -14,7 +14,7 @@
       echo '</div>' . PHP_EOL;
     }
   ?>
-  <span class="price">Cup 2.99 &mdash; Bowl 4.19</span>
+  <span class="price">Cup 3.29 &mdash; Bowl 4.29</span>
   <h2>FEATURED SALADS</h2>
   <?php
     foreach ($saladitems as $item) {
